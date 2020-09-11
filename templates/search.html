@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<h3>Search Results</h3>
+<hr />
+
+<div class="row">
+    <div class="col-md-10 col sm-12">
+
+        <p>We've found <strong>{{ results|length }}</strong>matches for {{q}}</p>
+
+
+        {% for a in results %}
+
+        <div class="rounded shadow my-3 p-3">
+    <a href="/edit/{{a.Title}}" class="display-4">{{a.Title}} ({{a.Year}})</a>
+    <p><strong>Cast</strong>{{a.Cast}}</p>
+        </div>
+    </div>
+</div>
+
+{% endfor %}
+ <a href="/" class="btn btn-sm btn-primary mt-3 ml-5">
+            <span class="fa fa-arrow-left"></span>
+            Go back
+ 
+        </a>
+{% endblock %}
+

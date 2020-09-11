@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="rounded shadow p-3">
+
+    <h3>Edit {{movie.title}}</h3>
+
+    <hr />
+
+    {% if msg %}
+    <p class="p-4 alert alert-info">
+        {{msg}}
+    </p>
+    {% endif %}
+
+    <form action="/edit/{{movie.Title}}" method="post">
+        <label for="Title">Movie Title</label>
+        <input type="text" value="{{movie.Title}}" name="Title" id="Title" class="form-control" />
+
+        <label for="Year">Release Year</label>
+        <input type="number"  value="{{movie.Year}}" name="Year" id="Year" class="form-control" />
+
+        <label for="budget">Budget</label>
+        <input type="text"  value="{{movie.Budget}}" name="Budget" id="Budget" class="form-control" />
+
+        <label for="Cast">Cast</label>
+        <input
+            type="text"
+            value="{{movie.Cast}}"
+            name="Cast"
+            id="Cast"
+            class="form-control"
+            placeholder="Who are the main cast. Separate with a comma"
+        />
+        <button type="submit" class="btn btn-sm btn-success mt-3">
+            <span class="fa fa-save"></span>
+            Update Movie
+
+        </button>
+
+        <a href="/" class="btn btn-sm btn-primary mt-3">
+            <span class="fa fa-arrow-left"></span>
+            Go back
+        
+        </a>
+    </form>
+</div>
+
+{% endblock %}

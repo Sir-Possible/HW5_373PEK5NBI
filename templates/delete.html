@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block main %}
+
+<div class="row">
+    <div class="col-md-4 offset-4">
+        <div class="rounded-shadow p-5 mt-5">
+            <h4 class="text-danger">
+                Are you sure?
+            </h4>
+            <p>
+                Proceed to delete <strong class="danger-text">
+                    {{movie.Tittle}}</strong> ?
+            </p>
+
+            <form action="/delete/{{movie.id}}" method="post">
+                <input type="submit" value="Yes" class="btn btn-danger">
+                <a href="/" class="btn btn-primary">No</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
